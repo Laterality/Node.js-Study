@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Movie Detail</title>
+	</head>
+	<body>
+		<h1>영화 상세 정보</h1>
+		<ul>
+			<li>제목 : <%= data.title %></li>
+			<li>감독 : <%= data.director %></li>
+			<li>연도 : <%= data.year %></li>
+		</ul>
+		<h4>리뷰( <%= data.review.length %> )</h4>
+		<ul>
+			<% data.review.reviews.forEach(function (item)
+			{ %>
+				<li><%= item %></li>
+			<% }); %>
+		</ul>
+		<form method="post" action="<%= data.title %>/addreview">
+			<span width="20pt"><input type="text" name="review"/></span>
+			<input type="submit" value="입력"/>
+		</form>
+	</body>
+</html>
